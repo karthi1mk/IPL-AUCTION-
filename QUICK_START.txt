@@ -1,0 +1,121 @@
+╔════════════════════════════════════════════════════════════╗
+║         IPL AUCTION 2025 - QUICK START GUIDE              ║
+╚════════════════════════════════════════════════════════════╝
+
+📦 FILES INCLUDED:
+├── index.html                        (Main application)
+├── styles.css                        (Premium styling)
+├── script.js                         (Auction logic)
+├── README.md                         (Full documentation)
+├── SAMPLE_IPL_AUCTION_TEMPLATE.xlsx  (Excel template)
+└── SAMPLE_EXCEL_FORMAT.txt           (Format guide)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 INSTANT SETUP (4 STEPS):
+
+Step 1: Extract all files to a folder
+Step 2: Prepare player images (name them as player names)
+Step 3: Open index.html and upload images + Excel file
+Step 4: Start auction with custom player photos!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🖼️ PLAYER IMAGES SETUP:
+
+1. Collect player photos (JPG, PNG, etc.)
+2. Rename files to match Excel player names EXACTLY
+   Example: "Virat Kohli.jpg" for player "Virat Kohli"
+3. Upload all images at once via "Choose Player Images"
+4. Then upload Excel file
+5. Images automatically match to players!
+
+See IMAGE_UPLOAD_GUIDE.txt for detailed instructions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 EXCEL FILE SETUP:
+
+1. Use SAMPLE_IPL_AUCTION_TEMPLATE.xlsx as reference
+2. Format: 3 columns (Batters | Bowlers | All-rounders)
+3. Each with player name and BASE CREDITS (in Crores)
+4. Save as .xlsx and upload
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎮 AUCTION FLOW:
+
+Upload Excel → Players load in order (Batters → Bowlers → All-rounders)
+                     ↓
+           Select Team → Increase Bid → Mark SOLD/UNSOLD
+                     ↓
+           Auto-advance to next player
+                     ↓
+                Repeat until done
+                     ↓
+              Export results
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔑 KEY FEATURES:
+
+✅ Official IPL team logos (high quality)
+✅ Large centered player images (300x300px)
+✅ Upload custom player images (no random avatars!)
+✅ Smart Bid Increments (auto-adjusts based on price)
+✅ 10 IPL Teams with live budget tracking
+✅ Auto-save (LocalStorage)
+✅ Export to Excel
+✅ Team squads page
+✅ Premium dark theme UI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ SMART BID INCREMENTS:
+
+Below 2 CR    →  +0.10 CR (10 lakhs per click)
+2 CR to 5 CR  →  +0.20 CR (20 lakhs per click)
+Above 5 CR    →  +0.25 CR (25 lakhs per click)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS:
+
+• Test with sample Excel first
+• Full-screen mode (F11) for projector
+• Budget deducts automatically on SOLD
+• Use Reset to start fresh
+• Export results before closing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 TEAMS INCLUDED:
+
+CSK • MI • RCB • KKR • RR • SRH • DC • PBKS • LSG • GT
+
+Each team starts with 100 CR budget
+Official IPL team logos displayed
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 DISPLAY SETUP:
+
+Projector: 1920x1080, Full-screen, 100% zoom
+Laptop: 1920x1080 or higher, 100-110% zoom
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 TROUBLESHOOTING:
+
+Excel not loading? → Check format matches template
+Budget not updating? → Select team before bidding
+Need to restart? → Click Reset button
+Browser crashed? → Reopen - data is saved!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 For detailed instructions, see README.md
+
+Ready to host your IPL Auction? 🏏🔥
+
+Open index.html and get started!

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Auction 2026 - Live</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-content">
+            <div class="logo">
+                <h1>IPL AUCTION 2025</h1>
+                <span class="live-indicator">● LIVE</span>
+            </div>
+            <div class="nav-actions">
+                <button onclick="openTeamSquads()" class="btn-nav">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                    </svg>
+                    Team Squads
+                </button>
+                <button onclick="exportResults()" class="btn-nav">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Export
+                </button>
+                <button onclick="resetAuction()" class="btn-nav btn-danger">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                    </svg>
+                    Reset
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Upload Section -->
+    <div id="uploadSection" class="upload-section">
+        <div class="upload-card">
+            <div class="upload-icon">📊</div>
+            <h2>Upload Player Data</h2>
+            <p>Upload Excel file with Batters, Bowlers, and All-rounders</p>
+            <input type="file" id="excelFile" accept=".xlsx, .xls" style="display: none;" onchange="handleFileUpload(event)">
+            <button onclick="document.getElementById('excelFile').click()" class="btn-upload">
+                Choose Excel File
+            </button>
+            <div id="uploadStatus" class="upload-status"></div>
+            
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid rgba(0, 255, 136, 0.2);">
+                <div class="upload-icon" style="font-size: 3rem; margin-bottom: 1rem;">🖼️</div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #00d4ff;">Upload Player Images (Optional)</h3>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 1rem;">
+                    Select multiple images. Name them exactly as player names (e.g., "Virat Kohli.jpg")
+                </p>
+                <input type="file" id="playerImages" accept="image/*" multiple style="display: none;" onchange="handleImageUpload(event)">
+                <button onclick="document.getElementById('playerImages').click()" class="btn-upload" style="background: linear-gradient(135deg, #00d4ff, #0099ff);">
+                    Choose Player Images
+                </button>
+                <div id="imageUploadStatus" class="upload-status" style="font-size: 0.9rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Auction Screen -->
+    <div id="auctionSection" class="auction-section" style="display: none;">
+        <!-- Teams Grid -->
+        <div class="teams-container">
+            <div id="teamsGrid" class="teams-grid"></div>
+        </div>
+
+        <!-- Current Player Display -->
+        <div class="player-display">
+            <div class="player-card">
+                <div class="player-image-container">
+                    <img id="playerImage" src="" alt="Player" class="player-image">
+                    <div id="playerCategory" class="player-category"></div>
+                </div>
+                <div class="player-info">
+                    <h2 id="playerName" class="player-name">---</h2>
+                    <div class="base-credits">
+                        Base: <span id="baseCredits">0</span> CR
+                    </div>
+                </div>
+            </div>
+
+            <div class="bid-display">
+                <div class="current-bid">
+                    <div class="bid-label">CURRENT BID</div>
+                    <div id="currentBid" class="bid-amount">0.00 CR</div>
+                </div>
+                <div id="biddingTeam" class="bidding-team">No Bids Yet</div>
+            </div>
+        </div>
+
+        <!-- Admin Controls -->
+        <div class="admin-panel">
+            <h3>Admin Controls</h3>
+            
+            <div class="control-group">
+                <label>Select Bidding Team</label>
+                <select id="teamSelector" class="team-selector" onchange="updateBiddingTeam()">
+                    <option value="">-- Select Team --</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <button onclick="increaseBid()" class="btn-control btn-bid">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Increase Bid (<span id="incrementAmount">0.10</span> CR)
+                </button>
+            </div>
+
+            <div class="control-group action-buttons">
+                <button onclick="markSold()" class="btn-control btn-sold">✓ SOLD</button>
+                <button onclick="markUnsold()" class="btn-control btn-unsold">✗ UNSOLD</button>
+            </div>
+
+            <div class="control-group">
+                <button onclick="nextPlayer()" class="btn-control btn-next">
+                    NEXT PLAYER →
+                </button>
+            </div>
+
+            <div class="player-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Total Players:</span>
+                    <span id="totalPlayers" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Remaining:</span>
+                    <span id="remainingPlayers" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Sold:</span>
+                    <span id="soldCount" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Unsold:</span>
+                    <span id="unsoldCount" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sold & Unsold Lists -->
+        <div class="results-section">
+            <div class="results-container">
+                <div class="sold-list">
+                    <h3>
+                        <svg width="20" height="20" fill="#00ff88" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                        </svg>
+                        SOLD PLAYERS
+                    </h3>
+                    <div id="soldPlayersList" class="players-list"></div>
+                </div>
+                <div class="unsold-list">
+                    <h3>
+                        <svg width="20" height="20" fill="#ff4444" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                        </svg>
+                        UNSOLD PLAYERS
+                    </h3>
+                    <div id="unsoldPlayersList" class="players-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Squads Modal -->
+    <div id="teamSquadsModal" class="modal">
+        <div class="modal-content team-squads-content">
+            <div class="modal-header">
+                <h2>Team Squads</h2>
+                <button onclick="closeTeamSquads()" class="btn-close">×</button>
+            </div>
+            <div id="teamSquadsGrid" class="team-squads-grid"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
