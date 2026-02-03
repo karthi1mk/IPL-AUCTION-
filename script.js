@@ -5,14 +5,14 @@
 const TEAMS = {
     CSK: { name: 'CSK', color: '#FFFF3C', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/330px-Chennai_Super_Kings_Logo.svg.png', budget: 100 },
     MI: { name: 'MI', color: '#004BA0', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/330px-Mumbai_Indians_Logo.svg.png', budget: 100 },
-    RCB: { name: 'RCB', color: '#EC1C24', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/2a/Royal_Challengers_Bangalore_2020.svg/330px-Royal_Challengers_Bangalore_2020.svg.png', budget: 100 },
+    RCB: { name: 'RCB', color: '#EC1C24', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgiCJzrQpbgXvb98aMVay3ipBAPV__6w1o3A&s', budget: 100 },
     KKR: { name: 'KKR', color: '#3A225D', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/330px-Kolkata_Knight_Riders_Logo.svg.png', budget: 100 },
-    RR: { name: 'RR', color: '#EA1A85', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/60/Rajasthan_Royals_Logo.svg/330px-Rajasthan_Royals_Logo.svg.png', budget: 100 },
-    SRH: { name: 'SRH', color: '#FF822A', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Sunrisers_Hyderabad.svg/330px-Sunrisers_Hyderabad.svg.png', budget: 100 },
-    DC: { name: 'DC', color: '#282968', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f5/Delhi_Capitals_Logo.svg/330px-Delhi_Capitals_Logo.svg.png', budget: 100 },
-    PBKS: { name: 'PBKS', color: '#DD1F2D', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Punjab_Kings_Logo.svg/330px-Punjab_Kings_Logo.svg.png', budget: 100 },
-    LSG: { name: 'LSG', color: '#1C84C6', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7f/Lucknow_Super_Giants_Logo.svg/330px-Lucknow_Super_Giants_Logo.svg.png', budget: 100 },
-    GT: { name: 'GT', color: '#1C2841', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/73/Gujarat_Titans_Logo.svg/330px-Gujarat_Titans_Logo.svg.png', budget: 100 }
+    RR: { name: 'RR', color: '#EA1A85', logo: 'https://upload.wikimedia.org/wikipedia/en/5/5c/This_is_the_logo_for_Rajasthan_Royals%2C_a_cricket_team_playing_in_the_Indian_Premier_League_%28IPL%29.svg', budget: 100 },
+    SRH: { name: 'SRH', color: '#FF822A', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCo0BUMSTb9AyeiPybNt-YXEcfe8mQ8Rm3yw&s', budget: 100 },
+    DC: { name: 'DC', color: '#282968', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE2sZBm4xFDta-g--xJ1K_samiXtT81gGugw&s', budget: 100 },
+    PBKS: { name: 'PBKS', color: '#DD1F2D', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4orvXJVq7qzpauCLUYj8vNQaa7IIRsTLXiA&s', budget: 100 },
+    LSG: { name: 'LSG', color: '#1C84C6', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQej-05EaEs65zRqiXxLaphKZKnrd-K2TZNhw&s', budget: 100 },
+    GT: { name: 'GT', color: '#1C2841', logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWeln5v7uugrA-GNGfp3qAyo74jkeNN0U7ww&s', budget: 100 }
 };
 
 let auctionState = {
